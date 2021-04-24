@@ -1,4 +1,4 @@
-import { getCustomRepository, Repository } from "typeorm";
+import { getCustomRepository, Repository, SimpleConsoleLogger } from "typeorm";
 import { User } from "../entities/User";
 import { UsersRepository } from "../repositories/UsersRepository";
 
@@ -36,6 +36,16 @@ class UsersService {
         // Se nao existir, salvar no BD
 
         return user;
+
+    }
+
+    async findByEmail(email:string){
+        console.log('Email', email)
+
+        const user = this.usersRepository.findOne({
+            email
+        })
+        return user
 
     }
 }
