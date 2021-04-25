@@ -37,6 +37,7 @@ class MessagesService{
            relations: ["user"],
         });
 
+        console.log("lists",list);
         return list;
 
     }
